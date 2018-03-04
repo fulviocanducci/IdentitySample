@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdentitySample.Domain\IdentitySample.Domain.csproj" />
+    <ProjectReference Include="..\IdentitySample.Infra.Data\IdentitySample.Infra.Data.csproj" />
+    <ProjectReference Include="..\IdentitySample.Infra.Identity\IdentitySample.Infra.Identity.csproj" />
+  </ItemGroup>
+
+</Project>
