@@ -2,6 +2,7 @@
 using IdentitySample.CrossCutting.Identity.Models;
 using IdentitySample.Infra.Identity.Data;
 using IdentitySample.Infra.IoC.Bootstrappers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -60,7 +61,10 @@ namespace IdentitySample.Api
 
             var auth = Configuration.GetSection("Authentication");
 
-            services.AddAuthentication("Bearer")
+            services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddIdentityServerAuthentication(opt =>
                 {
                     opt.Authority = auth.GetValue<string>("Authority");
